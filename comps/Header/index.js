@@ -13,12 +13,7 @@ onMouseOver={onMouseOver}
     <h1>Header</h1>
 </div>
 
-function MouseOver1(){
-    document.querySelector(".header").style.backgroundColor = '#FFE6EE';
-}
-function MouseOver2(){
-    document.querySelector(".header").style.backgroundColor = '#c7e0f4';
-}
+
 function MouseOverAlert(){
     alert("mouse is over");
 }
