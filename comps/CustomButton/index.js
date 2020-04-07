@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './cb.css';
 
 //Made the UI
@@ -14,6 +14,7 @@ onClick={onClick}
 
 function ButtonClick(){
     alert("Clicked");
+    //document.query...style.width = '100px;
 }
 
 CustomButton.defaultProps = {

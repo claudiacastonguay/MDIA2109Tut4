@@ -5,12 +5,8 @@
 import React from 'react';
 import './header.css';
 
-const Header = ({fontSize, color, onMouseOver}) => <div
-style={{color, fontSize}}
-className = 'header'
-onMouseOver={onMouseOver}
->
-    <h1>Header</h1>
+const Header = ({text, fontSize, color, onMouseOver}) => <div>
+    <h1 style={{fontSize:fontSize}}>{text}</h1>
 </div>
 
 
@@ -21,7 +17,8 @@ function MouseOverAlert(){
 Header.defaultProps = {
     fontSize: 12,
     color: "0000",
-    onMouseOver:MouseOverAlert
+    onMouseOver:MouseOverAlert,
+    text:'Header'
 }
 
 export default Header;
