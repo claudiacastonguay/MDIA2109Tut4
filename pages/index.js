@@ -7,8 +7,16 @@ import {IoMdContact} from 'react-icons/io';
 import {FaInfoCircle} from 'react-icons/fa';
 import {FaRegQuestionCircle} from 'react-icons/fa';
 
+import{data, ChangeData} from './data';
+
+console.log(data);
+
 
 function ClickIndex(){
+    ChangeData({
+        lastaction:"Went to Chat!",
+        numClicks: 0
+    })
     document.querySelector("#mainapp").style.right = '-100%';
    setTimeout(function(){
        Router.push("/ChatPage");

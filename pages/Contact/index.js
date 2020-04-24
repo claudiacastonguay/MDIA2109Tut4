@@ -2,6 +2,9 @@ import {useState, useEffect} from 'react';
 import CustomButton from '../../comps/CustomButton';
 import Header from '../../comps/Header';
 import './contact.css';
+import {data, ChangeData} from '../data';
+
+console.log(data);
 
 var index = 0;
 const headers_arr = [
@@ -11,6 +14,21 @@ const headers_arr = [
 ]
 
 const Contact = () => {
+    var text = "";
+    switch (data.lastaction){
+        case "":
+        text = "Please chat with me first";
+        break;
+        default:
+            text = "Thanks for chatting!";
+            break;
+    }
+
+    if(data.numClicks > 0 && data.numClicks < 10){
+        text += " Chat more with me!";
+    }else if(data.numClicks >= 0 && data.numClicks < 20){
+        text += " You are a chatter bot..";
+    }
     //setp 1 - create the state variable and the function to update it, and put a default inside.
     const [header_text, setHeader] = useState("Contact me!");
     const [pageleft, setLeft] = useState("-100%");
@@ -44,7 +62,8 @@ const Contact = () => {
     //step 2 - connect the state variable to the UI
 return <div id='contactpage' style={{left:pageleft}}>
     <Header text={header_text} fontSize={24}/>
-    <CustomButton text='email' onClick={()=>{
+    {text}
+    {data.lastaction !== "" ? <CustomButton text='email' onClick={()=>{
         //step 3 - connect the state function() to an interaction / figure out when you want to update the interface
         setHeader(headers_arr[index]);
         index++;
@@ -52,7 +71,7 @@ return <div id='contactpage' style={{left:pageleft}}>
             index = 0;
         }
         //setLeft("100%");
-    }} />
+    }} /> : null}
 </div>
 }
 
